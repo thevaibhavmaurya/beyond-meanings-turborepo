@@ -54,3 +54,41 @@ export interface IJwtPayload {
   email: string;
   userId: string;
 }
+
+// Billing
+export enum IBillingPlan {
+  FREE = "FREE",
+  PREMIUM = "PREMIUM",
+}
+
+export enum IBillingCycle {
+  MONTHLY = "MONTHLY",
+  YEARLY = "YEARLY",
+}
+
+export interface IBillingEntity extends ICoreEntity {
+  plan: IBillingPlan;
+  billingCycle: IBillingCycle;
+  stripeCustomerId: string;
+  stripeSubscriptionId: string;
+  creditsUsed: number;
+  totalCredits: number;
+  lastBillingDate: Date;
+  nextBillingDate: Date;
+}
+
+export interface IWebhookEventEntity extends ICoreEntity {
+  eventType: string;
+  eventId: string;
+  processed: boolean;
+  metadata?: Record<string, any>;
+}
+
+export interface IBillingPlanDetails {
+  name: string;
+  yearlyPrice: number;
+  halfYearlyPrice?: number;
+  features: string[];
+}
+
+export type IBillingPlans = Record<IBillingPlan, IBillingPlanDetails>;

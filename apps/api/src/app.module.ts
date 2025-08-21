@@ -5,6 +5,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EmailModule } from './email/email.module';
 import { JwtAuthModule } from './jwt/jwt-auth.module';
+import { BillingModule } from './billing/billing.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { JwtAuthModule } from './jwt/jwt-auth.module';
         };
       },
     }),
+    BillingModule,
   ],
   controllers: [AppController],
 })

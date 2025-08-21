@@ -7,18 +7,23 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { add, isPast } from 'date-fns';
 import { EmailService } from 'src/email/email.service';
 import { HashUtils } from 'src/utils/hash.util';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { Users } from './user.entity';
 import { IUserProfile } from '@repo/types';
 import { JwtAuthService } from 'src/jwt/jwt-auth.service';
+import { ApiKeyService } from 'src/api-key/api-key.service';
+import { BillingService } from 'src/billing/billing.service';
 
 @Injectable()
 export class UserService {
   constructor(
     @InjectRepository(Users)
     private repository: Repository<Users>,
+    private dataSource: DataSource,
     private emailService: EmailService,
     private jwtAuthService: JwtAuthService,
+    private apiKeyService: ApiKeyService,
+    private billingService: BillingService,
   ) {}
 
   private generateRandomNumber() {
@@ -29,19 +34,35 @@ export class UserService {
     return this.repository.findOneBy({ id });
   }
 
-  private async createUserIfNotExists(email: string) {
-    let user = await this.repository.findOne({ where: { email } });
-
-    if (!user) {
-      user = this.repository.create({
-        email,
-        name: email.split('@')[0],
-        status: true,
+  private createUserIfNotExists(email: string) {
+    return this.dataSource.transaction(async (transactionalEntityManager) => {
+      let user = await transactionalEntityManager.findOne(Users, {
+        where: { email },
       });
-      await this.repository.save(user);
-    }
 
-    return user;
+      if (!user) {
+        user = transactionalEntityManager.create(Users, {
+          email,
+          name: 'Beyond Meanings',
+          status: true,
+        });
+        await transactionalEntityManager.save(user);
+
+        const apiKey = this.apiKeyService.generateApiKey(
+          transactionalEntityManager,
+          user.id!,
+        );
+        await transactionalEntityManager.save(apiKey);
+
+        const billing = this.billingService.createDefaultBilling(
+          transactionalEntityManager,
+          user.id!,
+        );
+        await transactionalEntityManager.save(billing);
+      }
+
+      return user;
+    });
   }
 
   async sendLoginEmail(email: string) {
@@ -102,7 +123,12 @@ export class UserService {
       throw new UnauthorizedException('User account is disabled');
     }
 
-    return this.createAuthToken(user);
+    const token = this.createAuthToken(user);
+    if (!token) {
+      throw new UnauthorizedException('Invalid code');
+    }
+
+    return token;
   }
 
   async getUserProfile(userId: string): Promise<IUserProfile> {
@@ -123,5 +149,14 @@ export class UserService {
       createdAt: user.createdAt!,
       updatedAt: user.updatedAt!,
     };
+  }
+
+  async updateProfileName(userId: string, name: string) {
+    const user = await this.repository.findOne({ where: { id: userId } });
+    if (!user) {
+      throw new UnauthorizedException('User not found');
+    }
+    user.name = name;
+    return this.repository.save(user);
   }
 }

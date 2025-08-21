@@ -1,5 +1,11 @@
-import { IsEmail, IsNotEmpty, IsNumber } from 'class-validator';
-import { IAuthResponse, IUserProfile } from '@repo/types';
+import { IUserUpdateProfile } from '@repo/types';
+import {
+  IsEmail,
+  IsNotEmpty,
+  IsNumber,
+  IsString,
+  MinLength,
+} from 'class-validator';
 
 export class EmailCodeDto {
   @IsEmail()
@@ -13,17 +19,9 @@ export class VerifyEmailCodeDto extends EmailCodeDto {
   code: number;
 }
 
-export class AuthResponseDto implements IAuthResponse {
-  success: boolean;
-  message: string;
-  accessToken?: string;
-}
-
-export class UserProfileDto implements IUserProfile {
-  id: string;
-  email: string;
+export class UpdateProfileDto implements IUserUpdateProfile {
+  @IsString()
+  @IsNotEmpty()
+  @MinLength(2)
   name: string;
-  status: boolean;
-  createdAt: Date;
-  updatedAt: Date;
 }

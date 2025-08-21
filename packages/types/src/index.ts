@@ -18,10 +18,8 @@ export type IUserProfile = Omit<
   "password_hash" | "expiresAt" | "accessToken"
 >;
 
-export interface IAuthResponse {
-  success: boolean;
-  message: string;
-  accessToken?: string;
+export interface IUserUpdateProfile {
+  name: string;
 }
 
 export interface IResponseBody<T> {
@@ -33,14 +31,6 @@ export interface IResponseBody<T> {
 // Email
 export const enum IEmailTemplates {
   SendCode = "send-code",
-}
-
-export interface ITeamInvitationProps {
-  email: string;
-  token: string;
-  teamName: string;
-  inviterName?: string;
-  expiresAt: Date;
 }
 
 export interface IEmailCodeDto {
@@ -66,15 +56,24 @@ export enum IBillingCycle {
   YEARLY = "YEARLY",
 }
 
+export enum ICreditOperation {
+  CREDIT_1 = "CREDIT_1",
+}
+
+export const CREDIT_COSTS: Record<ICreditOperation, number> = {
+  [ICreditOperation.CREDIT_1]: 1,
+};
+
 export interface IBillingEntity extends ICoreEntity {
+  userId: string;
   plan: IBillingPlan;
   billingCycle: IBillingCycle;
-  stripeCustomerId: string;
-  stripeSubscriptionId: string;
+  stripeCustomerId?: string;
+  stripeSubscriptionId?: string;
   creditsUsed: number;
   totalCredits: number;
-  lastBillingDate: Date;
-  nextBillingDate: Date;
+  lastBillingDate?: Date;
+  nextBillingDate?: Date;
 }
 
 export interface IWebhookEventEntity extends ICoreEntity {
@@ -92,3 +91,14 @@ export interface IBillingPlanDetails {
 }
 
 export type IBillingPlans = Record<IBillingPlan, IBillingPlanDetails>;
+
+// API Key
+export interface IApiKeyEntity extends ICoreEntity {
+  key: string;
+  userId: string;
+  isActive: boolean;
+}
+
+export interface IUpdateApiKeyStatus {
+  isActive: boolean;
+}

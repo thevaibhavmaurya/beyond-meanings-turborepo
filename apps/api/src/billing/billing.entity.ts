@@ -5,33 +5,41 @@ import {
   IWebhookEventEntity,
 } from '@repo/types';
 import { CoreEntity } from 'src/core/models/core.entity';
-import { Column, Entity } from 'typeorm';
+import { Users } from 'src/user/user.entity';
+import { Column, Entity, JoinColumn, OneToOne } from 'typeorm';
 
 @Entity()
 export class Billing extends CoreEntity implements IBillingEntity {
-  @Column({ type: 'enum', enum: IBillingPlan })
+  @Column({ type: 'uuid', unique: true })
+  userId: string;
+
+  @OneToOne(() => Users, (user) => user.billing, { onDelete: 'CASCADE' })
+  @JoinColumn({ name: 'userId' })
+  user: Users;
+
+  @Column({ type: 'enum', enum: IBillingPlan, default: IBillingPlan.FREE })
   plan: IBillingPlan;
 
-  @Column({ type: 'enum', enum: IBillingCycle })
+  @Column({ type: 'enum', enum: IBillingCycle, default: IBillingCycle.MONTHLY })
   billingCycle: IBillingCycle;
 
-  @Column({ type: 'varchar' })
-  stripeCustomerId: string;
+  @Column({ type: 'varchar', nullable: true })
+  stripeCustomerId?: string;
 
-  @Column({ type: 'varchar' })
-  stripeSubscriptionId: string;
+  @Column({ type: 'varchar', nullable: true })
+  stripeSubscriptionId?: string;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', default: 0 })
   creditsUsed: number;
 
-  @Column({ type: 'int' })
+  @Column({ type: 'int', default: 100 })
   totalCredits: number;
 
-  @Column({ type: 'timestamp' })
-  lastBillingDate: Date;
+  @Column({ type: 'timestamp', nullable: true })
+  lastBillingDate?: Date;
 
-  @Column({ type: 'timestamp' })
-  nextBillingDate: Date;
+  @Column({ type: 'timestamp', nullable: true })
+  nextBillingDate?: Date;
 }
 
 @Entity('webhook_events')

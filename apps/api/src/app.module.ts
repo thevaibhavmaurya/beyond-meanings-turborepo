@@ -1,11 +1,12 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { UserModule } from './user/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { EmailModule } from './email/email.module';
 import { JwtAuthModule } from './jwt/jwt-auth.module';
 import { BillingModule } from './billing/billing.module';
+import { ApiKeyModule } from './api-key/api-key.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -35,6 +36,7 @@ import { BillingModule } from './billing/billing.module';
       },
     }),
     BillingModule,
+    ApiKeyModule,
   ],
   controllers: [AppController],
 })

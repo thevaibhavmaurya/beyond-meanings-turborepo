@@ -1,0 +1,191 @@
+<mjml lang="en">
+  <mj-head>
+    <mj-title>[BeyondMeanings] Login Now</mj-title>
+    <mj-preview>You can now login to BeyondMeanings</mj-preview>
+    <mj-font
+      name="Inter"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
+    <mj-attributes>
+      <mj-all
+        font-family="Inter, Arial, sans-serif"
+        font-size="16px"
+        line-height="24px"
+      />
+      <mj-button
+        background-color="#d1b479"
+        color="white"
+        border-radius="8px"
+        font-weight="600"
+      />
+      <mj-class name="heading" font-weight="bold" />
+      <mj-class name="footer-text" font-size="14px" color="#676461" />
+      <mj-section padding="0" />
+      <mj-wrapper padding="0" />
+    </mj-attributes>
+    <mj-style inline="inline">
+      h1,
+      h2 {
+        margin: 0;
+        font-size: 24px;
+        line-height: 32px;
+        font-weight: 600;
+      }
+      a {
+        color: #d1b479;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .login-code {
+        letter-spacing: 6px;
+        font-size: 36px;
+        font-weight: 700;
+        color: #d1b479;
+        padding: 8px 0;
+        display: inline-block;
+      }
+      .code-container {
+        background-color: #fffdf9;
+        border: 1px solid #e8ddc5;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+      }
+      @media only screen and (max-width: 480px) {
+        .mobile-padding {
+          padding-left: 15px !important;
+          padding-right: 15px !important;
+        }
+        .mobile-font {
+          font-size: 22px !important;
+        }
+        .login-code {
+          font-size: 32px !important;
+          letter-spacing: 4px !important;
+        }
+      }
+      @media (prefers-color-scheme: dark) {
+        body {
+          background-color: #1f1f1f !important;
+        }
+        .container {
+          background-color: #2d2d2d !important;
+        }
+        .dark-text {
+          color: #f0f0f0 !important;
+        }
+        .dark-text-muted {
+          color: #b0b0b0 !important;
+        }
+        .dark-divider {
+          border-color: #444444 !important;
+        }
+        .code-container {
+          background-color: #3a3220 !important;
+          border-color: #6e5a35 !important;
+        }
+        .login-code {
+          color: #d1b479 !important;
+        }
+        a {
+          color: #d1b479 !important;
+        }
+        .dark-logo {
+          color: #d1b479 !important;
+        }
+      }
+    </mj-style>
+  </mj-head>
+
+  <mj-body background-color="#f9f8f6">
+    <!-- Main content -->
+    <mj-section css-class="mobile-padding" padding="60px 20px 10px">
+      <mj-column
+        css-class="container"
+        background-color="white"
+        border-radius="12px"
+        padding="40px 0 0"
+      >
+        <mj-text
+          css-class="mobile-font dark-text"
+          font-size="26px"
+          font-weight="bold"
+          color="#333333"
+          line-height="34px"
+          align="center"
+          padding="10px 25px 15px"
+        >
+          Login to BeyondMeanings
+        </mj-text>
+
+        <mj-text
+          css-class="dark-text"
+          font-size="16px"
+          color="#4b4b4b"
+          padding="0 25px 20px"
+        >
+          Hi there,
+          <br /><br />
+          We received a request to log in to
+          <strong>BeyondMeanings</strong> with this email address. Use the code
+          below to securely access your account:
+        </mj-text>
+
+        <mj-text padding="5px 25px 20px">
+          <div class="code-container">
+            <div class="login-code">{{ otp }}</div>
+          </div>
+        </mj-text>
+
+        <mj-text
+          css-class="dark-text-muted"
+          font-size="14px"
+          color="#676461"
+          padding="0 25px 15px"
+        >
+          This code will expire on <strong>{{ expiresAt }}</strong>
+        </mj-text>
+
+        <mj-divider
+          css-class="dark-divider"
+          border-color="#e0dddc"
+          border-width="1px"
+          padding="10px 25px"
+        />
+
+        <mj-text
+          css-class="dark-text-muted"
+          font-size="14px"
+          color="#676461"
+          padding="10px 25px 30px"
+        >
+          If you didn’t request this login code, you can safely ignore this
+          email. Someone may have entered your email address by mistake.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!-- Footer -->
+    <mj-section padding="0 20px 20px">
+      <mj-column>
+        <mj-text
+          css-class="dark-text-muted"
+          font-size="14px"
+          color="#676461"
+          align="center"
+          padding-bottom="0px"
+        >
+          With ❤️ from the BeyondMeanings Team
+        </mj-text>
+        <mj-text
+          css-class="dark-text-muted"
+          font-size="12px"
+          color="#676461"
+          align="center"
+        >
+          © Copyright 2024 BeyondMeanings - All rights reserved
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>

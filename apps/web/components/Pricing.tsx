@@ -111,7 +111,7 @@ export function Pricing() {
 
             {/* Pro Plan - Featured */}
             <div className="lg:col-span-8">
-              <Card className="relative h-full border-primary shadow-lg hover:shadow-xl transition-all duration-300">
+              <Card className="relative h-full border-primary shadow-lg hover:shadow-xl transition-all duration-300 py-0">
                 {/* Popular Badge */}
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                   <Badge className="bg-primary text-primary-foreground px-3 py-1">

@@ -13,56 +13,56 @@ import {
   Target,
   Smartphone,
 } from "lucide-react";
-import { cn } from "@repo/ui/lib/utils";
-import Link from "next/link";
 import { LinkNavigate } from "./LinkNavigate";
 
 const problems = [
   {
-    title: "Mac Lookup Missing on Other Platforms",
+    title: "Constant Tab Switching Breaks Focus",
     description:
-      "Mac users feel completely lost without their beloved three-finger tap lookup when using Windows, Linux, or different browsers. The muscle memory is there, but the feature isn't.",
-    icon: Target,
-    readMoreLink:
-      "https://www.reddit.com/r/MacOS/comments/1lf1k9k/what_are_simple_windows_features_that_you_miss_on/",
-  },
-  {
-    title: "Three-Finger Tap Constantly Breaking",
-    description:
-      "Users report frequent issues with Mac's three-finger lookup gesture randomly stopping or becoming unreliable after macOS updates, requiring constant troubleshooting and restarts.",
-    icon: RefreshCw,
-    readMoreLink: "https://discussions.apple.com/thread/254513079",
-  },
-  {
-    title: "Microsoft Office Apps Block Mac Lookup",
-    description:
-      "Force touch and three-finger tap lookup features don't work in Microsoft Word, PowerPoint, and other Office apps, forcing users to rely on inferior built-in tools or manual searches.",
-    icon: Puzzle,
-    readMoreLink: "https://discussions.apple.com/thread/253687435",
-  },
-  {
-    title: "Browser Extensions Are Too Basic",
-    description:
-      "Available dictionary extensions only provide simple definitions. Users need comprehensive information about movies, people, games, and complex topics in one organized interface.",
-    icon: BookOpen,
-    readMoreLink:
-      "https://www.reddit.com/r/Safari/comments/1ckh2kq/is_there_a_dictionary_extension/",
-  },
-  {
-    title: "Constant Tab Switching Breaks Flow",
-    description:
-      "Opening Wikipedia, IMDB, Google, and dictionary sites in separate tabs destroys reading concentration and wastes time during research sessions.",
+      "Researching a topic often means bouncing between search, Wikipedia, forums, and articles—breaking your flow. A Mac-style Lookup feel, but for every browser and OS, keeps you in context.",
     icon: RotateCcw,
     readMoreLink:
-      "https://stackoverflow.com/questions/20507457/how-can-i-override-the-3-finger-tap-behavior-in-a-nstextview",
+      "https://www.cmu.edu/news/stories/archives/2021/may/overcoming-tab-overload.html",
   },
   {
-    title: "Gesture Conflicts and Compatibility Issues",
+    title: "Fragmented Information Across Sites",
     description:
-      "Mac trackpad gestures conflict with other apps and settings, causing lookup to trigger wrong actions or fail completely, especially with third-party tools like BetterTouchTool.",
+      "Answers live on many sources (Google, Reddit, Stack Overflow, Wikipedia, TMDB, IGDB). People keep asking for one query that checks multiple sites and pulls results together.",
+    icon: Puzzle,
+    readMoreLink:
+      "https://www.reddit.com/r/browsers/comments/1k8za0c/looking_for_a_browser_extension_that_can_parallel/",
+  },
+  {
+    title: "Time Wasted Repeating the Same Searches",
+    description:
+      "Re-running the same query across different apps and sites adds friction and drains time. An in-page lookup that fans out once and organizes results saves cycles.",
+    icon: RefreshCw,
+    readMoreLink:
+      "https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications",
+  },
+  {
+    title: "Unorganized Results Make Synthesis Hard",
+    description:
+      "Plain definitions aren’t enough. People install tools to structure results or narrow noise—signal needs a clean, organized view right where you’re reading.",
+    icon: BookOpen,
+    readMoreLink:
+      "https://www.wired.com/story/9-browser-extensions-search-the-web-better",
+  },
+  {
+    title: "Missing Context While Reading",
+    description:
+      "You need more than a dictionary pop-up—surrounding text, encyclopedic context, people and media references. A Mac-like Lookup experience should surface richer context in place.",
+    icon: Target,
+    readMoreLink:
+      "https://www.reddit.com/r/readwise/comments/1781r5m/have_access_to_the_surrounding_text_around_a/",
+  },
+  {
+    title: "Research on Mobile Is Harder",
+    description:
+      "Small screens, cramped UIs, and tab clutter make on-phone research tougher. Keeping results summarized and organized in a single, lightweight panel matters even more on mobile.",
     icon: Smartphone,
     readMoreLink:
-      "https://community.folivora.ai/t/lookup-word-under-cursor-not-working/32004",
+      "https://www.nngroup.com/articles/mobile-content-is-twice-as-difficult-2011/",
   },
 ];
 
@@ -72,14 +72,15 @@ export function Problems() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-12 sm:mb-16">
           <h2 className="mb-4 sm:mb-6 text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight">
-            Why Mac Users Are{" "}
-            <span className="text-destructive">Frustrated</span> Without Their
-            Lookup Feature
+            Real Research Pain Points{" "}
+            <span className="text-destructive">Everyone</span> Experiences
+            Across the Web
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Real problems shared by thousands of users across Reddit, Apple
-            Support Communities, and Stack Overflow about the missing Mac lookup
-            experience everywhere else.
+            Bring the speed of Mac’s Lookup to <em>any</em> browser and OS.
+            These are the universal problems people report across forums,
+            communities, and studies. BeyondMeanings tackles them in-place,
+            without breaking your reading flow.
           </p>
         </div>
 

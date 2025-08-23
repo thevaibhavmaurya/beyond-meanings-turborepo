@@ -148,3 +148,38 @@ export interface IStatusResponse {
   job_status: IResearchJobStatus;
   data?: IResearchEntity;
 }
+
+// Auth
+export interface ISendCodeRequest {
+  email: string;
+}
+
+export interface IVerifyCodeRequest {
+  email: string;
+  code: string;
+}
+
+export interface IVerifyCodeResponse {
+  success: boolean;
+  message: string;
+  data: {
+    accessToken: string;
+  };
+}
+
+export interface IAuthUser {
+  id: string;
+  name: string;
+  email: string;
+  status: boolean;
+}
+
+export interface IAuthContext {
+  user: IAuthUser | null;
+  token: string | null;
+  sendCode: (email: string) => Promise<void>;
+  verifyCode: (email: string, code: string) => Promise<void>;
+  logout: () => void;
+  isLoading: boolean;
+  isAuthenticated: boolean;
+}

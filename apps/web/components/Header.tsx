@@ -14,11 +14,14 @@ import {
   BookOpen,
   DollarSign,
   HelpCircle,
+  LayoutDashboard,
 } from "lucide-react";
+import { useAuth } from "../lib/auth-context";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -124,13 +127,27 @@ export function Header() {
 
             {/* Desktop Action Buttons */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button
-                size="sm"
-                className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg"
-              >
-                <User className="h-4 w-4 mr-2" />
-                Login
-              </Button>
+              {isAuthenticated ? (
+                <Link href="/dashboard">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg cursor-pointer"
+                  >
+                    <LayoutDashboard className="h-4 w-4 mr-2" />
+                    Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <Button
+                    size="sm"
+                    className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg cursor-pointer"
+                  >
+                    <User className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+              )}
             </div>
 
             {/* Mobile Menu Button */}
@@ -182,14 +199,29 @@ export function Header() {
 
             {/* Mobile Action Buttons */}
             <div className="p-4 pt-2 space-y-2 border-t border-border/20">
-              <Button
-                size="sm"
-                className="w-full bg-gradient-to-r from-primary to-primary/80 justify-start"
-                onClick={() => handleNavClick("#pricing")}
-              >
-                <User className="h-4 w-4 mr-3" />
-                Login
-              </Button>
+              {isAuthenticated ? (
+                <Link href="/dashboard">
+                  <Button
+                    size="sm"
+                    className="w-full bg-gradient-to-r from-primary to-primary/80 justify-start cursor-pointer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <LayoutDashboard className="h-4 w-4 mr-3" />
+                    Dashboard
+                  </Button>
+                </Link>
+              ) : (
+                <Link href="/login">
+                  <Button
+                    size="sm"
+                    className="w-full bg-gradient-to-r from-primary to-primary/80 justify-start cursor-pointer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <User className="h-4 w-4 mr-3" />
+                    Login
+                  </Button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

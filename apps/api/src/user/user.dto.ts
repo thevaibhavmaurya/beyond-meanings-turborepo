@@ -1,11 +1,5 @@
 import { IUserUpdateProfile } from '@repo/types';
-import {
-  IsEmail,
-  IsNotEmpty,
-  IsNumber,
-  IsString,
-  MinLength,
-} from 'class-validator';
+import { IsEmail, IsNotEmpty, IsString, MinLength } from 'class-validator';
 
 export class EmailCodeDto {
   @IsEmail()
@@ -14,9 +8,9 @@ export class EmailCodeDto {
 }
 
 export class VerifyEmailCodeDto extends EmailCodeDto {
-  @IsNumber()
+  @IsString()
   @IsNotEmpty()
-  code: number;
+  code: string;
 }
 
 export class UpdateProfileDto implements IUserUpdateProfile {

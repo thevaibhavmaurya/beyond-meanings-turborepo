@@ -1,5 +1,7 @@
+import { Toaster } from "@repo/ui/components/sonner";
 import { ThemeProvider } from "@repo/ui/components/theme-provider";
-import { ThemeToggle } from "@repo/ui/components/theme-toggle";
+import { AuthProvider } from "../lib/auth-context";
+import { ErrorBoundary } from "../components/ErrorBoundary";
 import "@repo/ui/globals.css";
 import type { Metadata } from "next";
 
@@ -40,8 +42,12 @@ export default function RootLayout({
     <html lang="en" id="home" className="scroll-pt-12">
       <body className="relative">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
-          <ThemeToggle />
+          <ErrorBoundary>
+            <AuthProvider>
+              <Toaster />
+              {children}
+            </AuthProvider>
+          </ErrorBoundary>
         </ThemeProvider>
       </body>
     </html>

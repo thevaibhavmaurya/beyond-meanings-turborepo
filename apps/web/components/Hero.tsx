@@ -1,6 +1,6 @@
-import { Button } from "@repo/ui/components/button";
+import { Button, buttonVariants } from "@repo/ui/components/button";
 import { Badge } from "@repo/ui/components/badge";
-import "../styles/hero.css";
+import { LinkNavigate } from "./LinkNavigate";
 
 export function Hero() {
   return (
@@ -8,7 +8,7 @@ export function Hero() {
       id="home"
       className="relative overflow-hidden py-12 sm:py-16 lg:py-20 min-h-screen flex items-center"
     >
-      {/* Enhanced background with animated gradient */}
+      {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-muted/20 to-muted/40" />
       <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]" />
 
@@ -18,34 +18,35 @@ export function Hero() {
 
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-4xl text-center">
-          {/* Animated Badge */}
+          {/* Badge */}
           <Badge className="mb-4 sm:mb-6 animate-fade-in-up">
-            🍎 Mac's Beloved Lookup Feature, Now Supercharged
+            🚀 Lookup Reimagined for Everyone
           </Badge>
 
-          {/* Main headline with gradient text */}
+          {/* Headline */}
           <h1 className="mb-4 sm:mb-6 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight animate-fade-in-up delay-100">
-            Your Favorite{" "}
+            Highlight.{" "}
             <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
-              Mac Lookup
-            </span>{" "}
-            Enhanced with AI Intelligence
+              Lookup
+            </span>
+            . Understand Anywhere You Browse
           </h1>
 
-          {/* Enhanced subtitle */}
+          {/* Subtitle */}
           <p className="mb-6 sm:mb-8 text-lg sm:text-xl lg:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fade-in-up delay-200">
-            Simply highlight any word or phrase to instantly access definitions,
-            movie details, person info, and comprehensive research just like
-            Mac's three-finger tap, but with{" "}
+            Go beyond dictionary popups. Instantly access{" "}
             <span className="text-primary font-medium">
-              AI-powered multi-source insights
-            </span>
-            .
+              definitions, people, movies, games, and research insights
+            </span>{" "}
+            from multiple sources — all inside your browser. A familiar Mac-like
+            gesture, now supercharged with AI for{" "}
+            <span className="font-medium">every user on every platform</span>.
           </p>
 
-          {/* Enhanced interaction flow with better styling */}
+          {/* Interaction flow */}
           <div className="mb-8 sm:mb-10 animate-fade-in-up delay-300">
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 backdrop-blur-sm border">
+              {/* Step 1 */}
               <div className="flex items-center gap-2 text-sm font-medium">
                 <div className="p-2 rounded-full bg-primary/10">
                   <svg
@@ -75,6 +76,7 @@ export function Hero() {
                 </svg>
               </div>
 
+              {/* Step 2 */}
               <div className="flex items-center gap-2 text-sm font-medium">
                 <div className="p-2 rounded-full bg-secondary/10">
                   <kbd className="px-2 py-1 text-xs font-mono bg-muted rounded border">
@@ -100,6 +102,7 @@ export function Hero() {
                 </svg>
               </div>
 
+              {/* Step 3 */}
               <div className="flex items-center gap-2 text-sm font-medium">
                 <div className="p-2 rounded-full bg-accent/10">
                   <svg
@@ -115,6 +118,7 @@ export function Hero() {
             </div>
           </div>
 
+          {/* CTA buttons */}
           <div className="mb-8 sm:mb-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <Button
               size="lg"
@@ -122,16 +126,9 @@ export function Hero() {
             >
               Add to Browser
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto px-6 sm:px-8 cursor-pointer"
-            >
-              See It in Action
-            </Button>
           </div>
 
-          {/* Enhanced video placeholder */}
+          {/* Video */}
           <div className="mx-auto max-w-4xl mb-12 sm:mb-16 animate-fade-in-up delay-500">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
@@ -147,7 +144,7 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Enhanced features with hover effects */}
+          {/* Features */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8 animate-fade-in-up delay-600">
             {[
               {
@@ -160,7 +157,7 @@ export function Hero() {
                   />
                 ),
                 title: "Smart Context Detection",
-                desc: "Knows if you're looking up movies, people, or definitions",
+                desc: "Understands if you're looking up definitions, movies, people, or games.",
                 bg: "bg-primary/10",
                 iconColor: "text-primary",
               },
@@ -174,7 +171,7 @@ export function Hero() {
                   />
                 ),
                 title: "Multi-Source Research",
-                desc: "Wikipedia, web search, movies, games & definitions combined",
+                desc: "Brings together Wikipedia, IMDB, dictionaries, and AI search.",
                 bg: "bg-secondary/10",
                 iconColor: "text-secondary-foreground",
               },
@@ -187,8 +184,8 @@ export function Hero() {
                     d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
                   />
                 ),
-                title: "Mac-Like Experience",
-                desc: "Familiar interaction, enhanced with AI intelligence",
+                title: "Familiar, Yet Smarter",
+                desc: "A Mac-like lookup flow, but designed for every browser and powered by AI.",
                 bg: "bg-accent/10",
                 iconColor: "text-accent-foreground",
               },

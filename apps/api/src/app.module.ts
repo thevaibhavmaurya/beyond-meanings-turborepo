@@ -6,6 +6,7 @@ import { EmailModule } from './email/email.module';
 import { JwtAuthModule } from './jwt/jwt-auth.module';
 import { BillingModule } from './billing/billing.module';
 import { ApiKeyModule } from './api-key/api-key.module';
+import { ResearchModule } from './research/research.module';
 import { AppController } from './app.controller';
 
 @Module({
@@ -37,6 +38,7 @@ import { AppController } from './app.controller';
     }),
     BillingModule,
     ApiKeyModule,
+    ResearchModule,
   ],
   controllers: [AppController],
 })

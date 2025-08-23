@@ -102,3 +102,49 @@ export interface IApiKeyEntity extends ICoreEntity {
 export interface IUpdateApiKeyStatus {
   isActive: boolean;
 }
+
+// Research Entity
+export enum IResearchJobStatus {
+  COMPLETED = "COMPLETED",
+  FAILED = "FAILED",
+  PROCESSING = "PROCESSING",
+}
+
+export interface ITabContent {
+  title: string;
+  content: string;
+  source: string;
+}
+
+export interface IMacLookupOutput {
+  query: string;
+  tabs: ITabContent[];
+  primary_summary: string;
+  tools_used: string[];
+}
+
+export interface IResearchEntity extends ICoreEntity {
+  query_id: string;
+  query: string;
+  content: IMacLookupOutput | null;
+  job_status: IResearchJobStatus;
+}
+
+export interface ILookupRequest {
+  query: string;
+}
+
+export interface ILookupResponse {
+  research_id: string;
+  status: IResearchJobStatus;
+}
+
+export interface IStatusRequest {
+  research_id: string;
+}
+
+export interface IStatusResponse {
+  research_id: string;
+  job_status: IResearchJobStatus;
+  data?: IResearchEntity;
+}

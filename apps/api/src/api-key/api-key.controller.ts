@@ -5,6 +5,7 @@ import { JwtAuthGuard } from 'src/jwt/jwt-auth.guard';
 import { UserId } from 'src/user/user.decorator';
 import { ApiKey } from './api-key.entity';
 import { UpdateApiKeyStatusDto } from './api-key.dto';
+import { ApiKeyGuard } from './api-key.guard';
 
 @Controller('api-key')
 export class ApiKeyController {
@@ -46,6 +47,15 @@ export class ApiKeyController {
     return {
       success: true,
       message: `API key ${updateApiKeyStatusDto.isActive ? 'activated' : 'deactivated'} successfully`,
+    };
+  }
+
+  @UseGuards(ApiKeyGuard)
+  @Get('status')
+  async getApiKeyStatus(): Promise<IResponseBody<void>> {
+    return {
+      success: true,
+      message: 'API key status retrieved successfully',
     };
   }
 }

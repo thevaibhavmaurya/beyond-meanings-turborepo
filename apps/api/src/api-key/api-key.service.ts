@@ -63,4 +63,8 @@ export class ApiKeyService {
 
     return await this.apiKeyRepository.save(apiKey);
   }
+
+  validateAndUpdateUsage(key: string) {
+    return this.apiKeyRepository.findOne({ where: { key } });
+  }
 }

@@ -1,0 +1,418 @@
+/* Popup Styles for Beyond Meanings Extension */
+/* Based on the Beyond Meanings theme colors and design system */
+
+:root {
+  --background: oklch(0.92 0.02 85);
+  --foreground: oklch(0.15 0 0);
+  --card: rgba(255, 255, 255, 0.12);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: rgba(255, 255, 255, 0.25);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.72 0.12 75);
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: rgba(255, 255, 255, 0.3);
+  --secondary-foreground: oklch(0.2 0 0);
+  --muted: rgba(209, 180, 121, 0.08);
+  --muted-foreground: oklch(0.45 0.02 60);
+  --accent: rgba(209, 180, 121, 0.12);
+  --accent-foreground: oklch(0.2 0 0);
+  --destructive: oklch(0.58 0.24 27);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: rgba(209, 180, 121, 0.15);
+  --input: rgba(255, 255, 255, 0.15);
+  --ring: oklch(0.72 0.12 75);
+  --radius: 0.75rem;
+}
+
+/* Auto-detect system theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: oklch(0.18 0.02 85);
+    --foreground: oklch(0.95 0.02 85);
+    --card: rgba(209, 180, 121, 0.08);
+    --card-foreground: oklch(0.95 0.02 85);
+    --popover: rgba(209, 180, 121, 0.15);
+    --popover-foreground: oklch(0.95 0.02 85);
+    --primary: oklch(0.85 0.12 75);
+    --primary-foreground: oklch(0.12 0 0);
+    --secondary: rgba(209, 180, 121, 0.12);
+    --secondary-foreground: oklch(0.95 0.02 85);
+    --muted: rgba(209, 180, 121, 0.08);
+    --muted-foreground: oklch(0.65 0.04 75);
+    --accent: rgba(209, 180, 121, 0.15);
+    --accent-foreground: oklch(0.95 0.02 85);
+    --destructive: oklch(0.55 0.22 25);
+    --destructive-foreground: oklch(0.9 0.15 30);
+    --border: rgba(209, 180, 121, 0.18);
+    --input: rgba(209, 180, 121, 0.12);
+    --ring: oklch(0.85 0.12 75);
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 380px;
+  min-height: 500px;
+  background: var(--background);
+  color: var(--foreground);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Inter", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 24px 20px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--card-foreground);
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.subtitle {
+  color: var(--muted-foreground);
+  font-size: 13px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.setup-form,
+.setup-complete {
+  flex: 1;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: var(--card-foreground);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group input {
+  background: var(--input);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--foreground);
+  transition: all 0.2s ease;
+  font-family: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+}
+
+.form-group input::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--ring);
+  box-shadow: 0 0 0 2px rgba(114, 183, 82, 0.2);
+  background: var(--background);
+}
+
+.btn-primary,
+.btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+  color: var(--secondary-foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: var(--accent-foreground);
+  border-color: var(--ring);
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+  font-size: 16px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.error-message,
+.success-message {
+  padding: 12px 16px;
+  border-radius: calc(var(--radius) - 2px);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.error-message {
+  background: var(--destructive);
+  color: var(--destructive-foreground);
+  border-color: rgba(220, 38, 38, 0.2);
+}
+
+.success-message {
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-color: rgba(114, 184, 82, 0.2);
+}
+
+.setup-complete {
+  text-align: center;
+  justify-content: center;
+}
+
+.success-icon {
+  font-size: 48px;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+.setup-complete h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--card-foreground);
+  margin-bottom: 8px;
+}
+
+.setup-complete > p {
+  color: var(--muted-foreground);
+  margin-bottom: 24px;
+}
+
+.instructions {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 2px);
+  padding: 20px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.instructions h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--card-foreground);
+  margin-bottom: 12px;
+}
+
+.instructions ol {
+  list-style: none;
+  counter-reset: step-counter;
+  padding: 0;
+}
+
+.instructions li {
+  counter-increment: step-counter;
+  margin-bottom: 8px;
+  padding-left: 32px;
+  position: relative;
+  color: var(--foreground);
+}
+
+.instructions li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+kbd {
+  background: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 2px 6px;
+  font-size: 12px;
+  font-family: "SF Mono", "Monaco", "Cascadia Code", "Roboto Mono", monospace;
+  color: var(--muted-foreground);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  padding: 16px 20px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  background: var(--muted);
+  margin-top: auto;
+}
+
+.footer p {
+  font-size: 12px;
+  color: var(--muted-foreground);
+  margin: 0;
+}
+
+.footer a {
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* API key status indicator */
+.api-key-status {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.status-dot.valid {
+  background: #22c55e;
+}
+
+.status-dot.invalid {
+  background: var(--destructive);
+}
+
+.status-dot.checking {
+  background: var(--primary);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Focus styles for accessibility */
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .header,
+  .setup-form,
+  .setup-complete,
+  .footer {
+    border: 1px solid var(--border);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    border: 2px solid var(--border);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .loading-spinner {
+    animation: none;
+  }
+
+  .status-dot.checking {
+    animation: none;
+  }
+}

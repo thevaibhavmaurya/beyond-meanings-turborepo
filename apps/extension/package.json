@@ -1,0 +1,24 @@
+{
+  "name": "@repo/extension",
+  "version": "1.0.0",
+  "description": "Chrome extension for Beyond Meanings AI-powered research",
+  "type": "module",
+  "scripts": {
+    "build": "echo 'Extension build - files are ready for Chrome'",
+    "dev": "echo 'Extension dev - load unpacked extension from this directory'",
+    "package": "zip -r beyond-meanings-extension.zip . -x '*.git*' 'node_modules/*' '*.DS_Store' 'package*.json' 'README.md'",
+    "lint": "echo 'Linting extension files'"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "research",
+    "text-analysis"
+  ],
+  "author": "Beyond Meanings",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.254"
+  },
+  "private": true
+}

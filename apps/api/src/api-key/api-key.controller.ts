@@ -52,7 +52,7 @@ export class ApiKeyController {
 
   @UseGuards(ApiKeyGuard)
   @Get('status')
-  async getApiKeyStatus(): Promise<IResponseBody<void>> {
+  getApiKeyStatus(): IResponseBody<void> {
     return {
       success: true,
       message: 'API key status retrieved successfully',

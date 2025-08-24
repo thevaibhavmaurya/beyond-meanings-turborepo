@@ -36,7 +36,7 @@ export class CreditGuard implements CanActivate {
 
     try {
       const billing = await this.billingService.getBillingInfo(userId);
-
+      console.log(billing);
       if (billing.plan === IBillingPlan.PREMIUM) {
         return true;
       }

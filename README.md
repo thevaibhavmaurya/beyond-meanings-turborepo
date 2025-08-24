@@ -1,135 +1,153 @@
-# Turborepo starter
+# BeyondMeanings
 
-This Turborepo starter is maintained by the Turborepo core team.
+## Introduction
 
-## Using this example
+Research online is broken. You highlight a word, open a new tab, search Google, maybe check Wikipedia, possibly look up a movie on IMDB, then lose track of what you were originally reading. It takes a lot of time. What if you could get comprehensive information with just a single command?
 
-Run the following command:
+**BeyondMeanings** fixes this.
 
-```sh
-npx create-turbo@latest
-```
+BeyondMeanings is an intelligent browser extension that brings comprehensive, multi-source research directly to any webpage. Simply highlight any word or phrase, and instantly access organized information from Wikipedia, web search, movie databases, gaming platforms, dictionary definitions and all without leaving your current page.
 
-## What's inside?
+No more tab switching. No more context loss. No more fragmented research.
 
-This Turborepo includes the following packages/apps:
 
-### Apps and Packages
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+## Demo Video
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+https://github.com/user-attachments/assets/b378e992-8eca-40e7-bad1-d7d123b88c78
 
-### Utilities
+## My Challenges
 
-This Turborepo has some additional tools already setup for you:
+• **Python Was Completely New** - I only knew JavaScript before this, so building anything in Python was tough. Creating an AI agent for the first time? Even tougher. Had to rely heavily on Cursor to help me write the code
 
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+• **Learning Agent Architecture** - Had to figure out from scratch how agents work, how LLMs interact with different tools and platforms, and how to make them all talk to each other properly
 
-### Build
+• **Tool Integration Nightmare** - Integrating Wikipedia, TMDB, IGDB, Tavily, and other APIs with the agent, then combining all those results into something useful for users was way more complex than I expected
 
-To build all apps and packages, run the following command:
+• **First Time Building Extensions** - Never built a browser extension before, so learning the Chrome extension APIs, manifest files, and how to make frontend communicate with backend was a whole new world
 
-```
-cd my-turborepo
+• **Backend Architecture Issues** - Implemented a backend but honestly, it's not great or scalable yet. Still learning how to structure things properly for real-world use
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
+Overall though, it was an amazing experience and I learned a ton!
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
 
-You can build a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+## Features
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
+• **Multi-Source Research** - Access Wikipedia, web search, movie databases, gaming info, and dictionary definitions all in one place
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
+• **AI-Powered Intelligence** - Context aware results that understand what you're looking for and provide relevant, organized information
 
-### Develop
+• **Organized Tab Interface** - Clean, structured presentation with dedicated tabs for different types of information sources
 
-To develop all apps and packages, run the following command:
+• **Real-time Information** - Get the latest web results and current information, not outdated cached content
 
-```
-cd my-turborepo
+• **Cross-Platform** - Works seamlessly across all major browsers like Chrome, Firefox, Safari, and Edge
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
+• **Privacy Focused** - No tracking, no data collection, no ads. Your research stays private and secure
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
+## Problems We Solve
 
-You can develop a specific package by using a [filter](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters):
+• **Constant Tab Switching** - You know that feeling when you're reading something and have to open like 5 different tabs to understand one word? Yeah, that breaks your focus completely. BeyondMeanings lets you get all that info without leaving your page
+*[Learn more about tab overload](https://www.cmu.edu/news/stories/archives/2021/may/overcoming-tab-overload.html)*
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
+• **Information Is All Over The Place** - Sometimes you need Wikipedia, sometimes Reddit has the real answer, sometimes it's on Stack Overflow. Why should you check each site manually when one search can do it all?
+*[Community discussion](https://www.reddit.com/r/browsers/comments/1k8za0c/looking_for_a_browser_extension_that_can_parallel/)*
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
+• **Doing The Same Search Multiple Times** - How many times have you googled the same thing on different sites? It's such a waste of time. Our extension does one search and gets results from everywhere
+*[Research on application switching](https://hbr.org/2022/08/how-much-time-and-energy-do-we-waste-toggling-between-applications)*
 
-### Remote Caching
+• **Results Are Usually A Mess** - Google gives you 10 blue links, Wikipedia gives you a wall of text, and everything else is scattered. We organize it properly so you can actually find what you need
+*[Browser extensions for better search](https://www.wired.com/story/9-browser-extensions-search-the-web-better)*
 
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
+• **Dictionary Popups Are Too Basic** - Those simple definition popups are fine for basic words, but what if you need context about a movie, a game, or some complex topic? We give you the full picture
+*[Community feedback](https://www.reddit.com/r/readwise/comments/1781r5m/have_access_to_the_surrounding_text_around_a/)*
 
-Turborepo can use a technique known as [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+• **Mobile Research Sucks** - Trying to research stuff on your phone is painful with all the tab switching and tiny screens. We keep everything in one clean interface that actually works on mobile
+*[Mobile usability research](https://www.nngroup.com/articles/mobile-content-is-twice-as-difficult-2011/)*
 
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
+## Architecture
+<img width="3044" height="1837" alt="image" src="https://github.com/user-attachments/assets/37dc1169-a9e0-45ce-9cf8-2581c1e1638a" />
 
-```
-cd my-turborepo
+## Installation Guide
 
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
+### Prerequisites
+Make sure you have Node.js, Postgres and pnpm installed on your system.
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
+### Step 1: Environment Configuration
+1. **Configure Environment Files**
+   - Copy `.env.example` to `.env` in each app directory:
+     - `apps/agent/.env.example` → `apps/agent/.env`
+     - `apps/api/.env.example` → `apps/api/.env`  
+     - `apps/web/.env.example` → `apps/web/.env`
+   - Fill in the required environment variables in each `.env` file
 
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+### Step 2: Install Dependencies
+1. **Install Project Dependencies**
+   ```bash
+   pnpm i
+   ```
 
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
+2. **Install Agent Dependencies**
+   ```bash
+   pnpm run install:agent
+   ```
 
-```
-# With [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
+### Step 3: Start the Application
+1. **Start the Main Project**
+   ```bash
+   pnpm run dev
+   ```
 
-# Without [global `turbo`](https://turborepo.com/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
+2. **Start the Agent (New Terminal)**
+   Open a new terminal window and run:
+   ```bash
+   pnpm run start:agent
+   ```
 
-## Useful Links
+### Step 4: Install Browser Extension
+1. **Open Browser Extension Management**
+   - **Chrome/Edge**: Navigate to `chrome://extensions/`
+   - **Firefox**: Navigate to `about:debugging#/runtime/this-firefox`
 
-Learn more about the power of Turborepo:
+2. **Enable Developer Mode**
+   - Toggle "Developer mode" on (Chrome/Edge)
+   - Click "This Firefox" → "Load Temporary Add-on" (Firefox)
 
-- [Tasks](https://turborepo.com/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.com/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.com/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.com/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.com/docs/reference/configuration)
-- [CLI Usage](https://turborepo.com/docs/reference/command-line-reference)
+3. **Load Unpacked Extension**
+   - Click "Load unpacked" and select the extension folder
+   - The BeyondMeanings extension should now appear in your extensions list
+
+### Step 5: Account Setup & API Configuration
+1. **Create Account**
+   - Open your browser and navigate to `localhost:3001`
+   - Create a new account or sign in
+
+2. **Get API Key**
+   - After logging in, copy your API Key from the dashboard
+
+3. **Configure Extension**
+   - Click on the BeyondMeanings extension icon in your browser toolbar
+   - Paste your API Key in the settings
+   - Save the configuration
+
+### Step 6: Start Using BeyondMeanings
+1. **Activate Lookup**
+   - Highlight any word or phrase on any webpage
+   - Press `Cmd+I` (Mac) or `Ctrl+I` (Windows/Linux)
+   - View comprehensive research results instantly!
+
+### Troubleshooting
+- Ensure all services are running (web app on localhost:3001, agent service)
+- Verify your API key is correctly entered in the extension
+- Check browser console for any error messages
+- Make sure all environment variables are properly configured
+
+## Quick Start
+
+1. **Highlight any text** on any webpage
+2. **Right-click** and select "BeyondMeanings Lookup" or use the keyboard shortcut
+3. **View organized results** in the popup panel
+4. **Explore different tabs** for comprehensive information
+5. **Close when done** - you never left your original page!
+
+---

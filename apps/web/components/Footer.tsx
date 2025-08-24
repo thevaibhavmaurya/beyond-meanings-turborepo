@@ -4,6 +4,7 @@ import { Input } from "@repo/ui/components/input";
 import { Separator } from "@repo/ui/components/separator";
 import { Card, CardContent } from "@repo/ui/components/card";
 import { Badge } from "@repo/ui/components/badge";
+import Logo from "./logo";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -53,20 +54,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">
           {/* Company Info */}
           <div className="lg:col-span-1 space-y-6">
-            <Link
-              href="/"
-              className="group flex items-center space-x-3 transition-all duration-300 hover:scale-105"
-            >
-              <div className="relative h-10 w-10 rounded-xl bg-gradient-to-br from-primary via-primary/80 to-primary/60 flex items-center justify-center shadow-lg ring-2 ring-primary/20">
-                <span className="text-primary-foreground font-bold text-lg">
-                  BM
-                </span>
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-white/20 to-transparent" />
-              </div>
-              <span className="font-bold text-xl lg:text-2xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                BeyondMeanings
-              </span>
-            </Link>
+            <Logo />
 
             <p className="text-muted-foreground text-sm lg:text-base leading-relaxed max-w-xs">
               Intelligent browser extension that brings Mac's Lookup feature to

@@ -113,7 +113,7 @@ export function Features() {
         {/* Feature highlight section */}
         <div className="mt-16 sm:mt-20">
           <div className="mx-auto max-w-5xl">
-            <Card className="overflow-hidden border-primary/20">
+            <Card className="overflow-hidden border-primary/20 py-0">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="p-6 sm:p-8 lg:p-12">
                   <Badge className="mb-4">Pro Feature</Badge>

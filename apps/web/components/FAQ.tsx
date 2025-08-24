@@ -14,14 +14,9 @@ const faqs = [
       "BeyondMeanings works on all major browsers including Chrome, Firefox, Safari, and Microsoft Edge. We regularly test and update our extension to ensure compatibility with the latest browser versions.",
   },
   {
-    question: "Is my data private and secure?",
-    answer:
-      "Absolutely. We don't track your searches, store your personal data, or sell information to third parties. Your research queries are processed securely and we don't keep logs of what you search for. Privacy is our top priority.",
-  },
-  {
     question: "What are the usage limits for the free plan?",
     answer:
-      "The free plan includes 15 lookups per day and can be used on 1 device. Free users get access to Wikipedia, dictionary definitions, and basic web search results. Pro users get unlimited lookups and access to all information sources.",
+      "The free plan includes 10 lookups per day and can be used on 1 device. Free users get access to Wikipedia, dictionary definitions, and basic web search results. Pro users get unlimited lookups and access to all information sources.",
   },
   {
     question: "How do I install the extension?",
@@ -59,8 +54,8 @@ export function FAQ() {
             Frequently Asked <span className="text-primary">Questions</span>
           </h2>
           <p className="text-lg sm:text-xl text-muted-foreground">
-            Everything you need to know about BeyondMeanings. Can't find the
-            answer you're looking for?
+            Everything you need to know about BeyondMeanings. Can&apos;t find
+            the answer you&apos;re looking for?
             <span className="text-primary hover:underline cursor-pointer">
               {" "}
               Contact our support team

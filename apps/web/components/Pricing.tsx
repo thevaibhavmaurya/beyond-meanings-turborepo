@@ -13,6 +13,7 @@ import { Badge } from "@repo/ui/components/badge";
 import { Separator } from "@repo/ui/components/separator";
 import { Check, Sparkles, RefreshCw, Shield } from "lucide-react";
 import { BILLING_PLANS } from "../lib/billing-plans";
+import { LoginLink } from "../lib/contant";
 
 export function Pricing() {
   const [isYearly, setIsYearly] = useState(true);
@@ -89,8 +90,8 @@ export function Pricing() {
                 </CardHeader>
 
                 <CardContent className="space-y-4">
-                  <Button variant="outline" className="w-full">
-                    Get Started Free
+                  <Button variant="outline" className="w-full" asChild>
+                    <a href={LoginLink}>Get Started Free</a>
                   </Button>
 
                   <Separator />
@@ -161,8 +162,8 @@ export function Pricing() {
                         </div>
                       </div>
 
-                      <Button className="w-full mb-4">
-                        Start 14-Day Free Trial
+                      <Button className="w-full mb-4" asChild>
+                        <a href={LoginLink}>Start 14-Day Free Trial</a>
                       </Button>
 
                       <div className="text-center p-3 bg-background/50 rounded-md border">

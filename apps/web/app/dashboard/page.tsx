@@ -27,6 +27,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "sonner";
 import { LinkNavigate } from "../../components/LinkNavigate";
+import Logo from "../../components/logo";
 import { ProtectedRoute } from "../../components/ProtectedRoute";
 import { handleApiError, userService } from "../../lib/api";
 import { useAuth } from "../../lib/auth-context";
@@ -113,10 +114,10 @@ function DashboardContent() {
       });
       if (response.success) {
         setApiKey((prev) =>
-          prev ? { ...prev, isActive: !prev.isActive } : null,
+          prev ? { ...prev, isActive: !prev.isActive } : null
         );
         toast.success(
-          `API key ${!apiKey.isActive ? "activated" : "deactivated"}`,
+          `API key ${!apiKey.isActive ? "activated" : "deactivated"}`
         );
       }
     } catch (error) {
@@ -153,20 +154,7 @@ function DashboardContent() {
       <header className="border-b border-border/20 bg-card/50">
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center space-x-3 transition-all duration-300 hover:scale-105"
-            >
-              <div className="h-8 w-8 rounded-xl bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex items-center justify-center shadow-lg ring-1 ring-primary/20">
-                <span className="text-primary-foreground font-bold text-sm">
-                  BM
-                </span>
-              </div>
-              <span className="font-bold text-lg bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                BeyondMeanings
-              </span>
-            </Link>
-
+            <Logo />
             <div className="flex items-center gap-3">
               <Link href="/">
                 <Button variant="outline" size="sm" className="cursor-pointer">
@@ -382,13 +370,13 @@ function DashboardContent() {
                         <span>
                           {formatCredits(
                             billing.creditsUsed,
-                            billing.totalCredits,
+                            billing.totalCredits
                           )}
                         </span>
                         <span>
                           {getUsagePercentage(
                             billing.creditsUsed,
-                            billing.totalCredits,
+                            billing.totalCredits
                           ).toFixed(1)}
                           %
                         </span>

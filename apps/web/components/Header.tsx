@@ -5,16 +5,13 @@ import { LayoutDashboard, Menu, User, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useAuth } from "../lib/auth-context";
+import Logo from "./logo";
+import { LoginLink } from "../lib/contant";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isAuthenticated } = useAuth();
-
-  const LoginLink =
-    process.env.NODE_ENV === "production"
-      ? "https://github.com/thevaibhavmaurya/beyond-meanings-turborepo"
-      : "/login";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,25 +73,7 @@ export function Header() {
         <div className="container mx-auto px-4 sm:px-6">
           <div className="flex h-16 items-center justify-between">
             {/* Logo */}
-            <Link
-              href="/"
-              className="group flex items-center space-x-2 sm:space-x-3 transition-all duration-300 hover:scale-105"
-            >
-              <div className="relative">
-                <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-xl bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex items-center justify-center shadow-lg ring-1 ring-primary/20 group-hover:ring-primary/40 transition-all duration-300">
-                  <span className="text-primary-foreground font-bold text-xs sm:text-sm">
-                    BM
-                  </span>
-                </div>
-                <div className="absolute -top-0.5 -right-0.5 h-3 w-3 bg-green-500 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-300 animate-pulse" />
-              </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-lg sm:text-xl bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-                  BeyondMeanings
-                </span>
-                <div className="h-0.5 w-0 group-hover:w-full bg-gradient-to-r from-primary to-primary/60 transition-all duration-500 rounded-full" />
-              </div>
-            </Link>
+            <Logo />
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center space-x-1">

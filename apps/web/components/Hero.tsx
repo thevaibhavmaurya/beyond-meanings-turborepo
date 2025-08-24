@@ -134,7 +134,7 @@ export function Hero() {
           <div className="mx-auto max-w-4xl mb-12 sm:mb-16 animate-fade-in-up delay-500">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
-              <div className="relative aspect-video overflow-hidden rounded-lg border bg-muted shadow-2xl">
+              <div className="relative aspect-[2880/1664] overflow-hidden rounded-lg border bg-muted shadow-2xl">
                 <video
                   className="w-full h-full object-cover"
                   src="/demo.mp4"

@@ -26,6 +26,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState, useCallback, useMemo } from "react";
 import { useAuth } from "../../lib/auth-context";
+import Image from "next/image";
+import Logo from "../../components/logo";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -165,21 +167,11 @@ export default function LoginPage() {
             </Link>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-center space-x-4">
-                <div className="h-16 w-16 rounded-2xl bg-gradient-to-br from-primary via-primary/90 to-primary/70 flex items-center justify-center shadow-xl ring-4 ring-primary/10 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent" />
-                  <span className="text-primary-foreground font-bold text-xl relative z-10">
-                    BM
-                  </span>
-                </div>
-                <div>
-                  <h1 className="text-3xl font-bold bg-gradient-to-r from-foreground to-foreground/60 bg-clip-text text-transparent">
-                    BeyondMeanings
-                  </h1>
-                  <p className="text-sm text-muted-foreground">
-                    AI-Powered Research Extension
-                  </p>
-                </div>
+              <div className="flex flex-col items-center justify-center space-y-2">
+                <Logo />
+                <p className="text-sm text-muted-foreground">
+                  AI-Powered Research Extension
+                </p>
               </div>
             </div>
           </div>

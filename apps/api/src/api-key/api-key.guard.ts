@@ -19,6 +19,8 @@ export class ApiKeyGuard implements CanActivate {
       return false;
     }
 
+    request.user = apiEntity.user;
+
     return true;
   }
 }

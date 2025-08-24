@@ -28,6 +28,7 @@ export class CreditGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest();
+
     const userId = request.user?.id;
 
     if (!userId) {
@@ -36,7 +37,7 @@ export class CreditGuard implements CanActivate {
 
     try {
       const billing = await this.billingService.getBillingInfo(userId);
-      console.log(billing);
+
       if (billing.plan === IBillingPlan.PREMIUM) {
         return true;
       }

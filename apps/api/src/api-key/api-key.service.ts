@@ -65,6 +65,9 @@ export class ApiKeyService {
   }
 
   validateAndUpdateUsage(key: string) {
-    return this.apiKeyRepository.findOne({ where: { key } });
+    return this.apiKeyRepository.findOne({
+      where: { key },
+      relations: ['user'],
+    });
   }
 }

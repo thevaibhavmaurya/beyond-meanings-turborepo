@@ -1,6 +1,6 @@
-import { Button, buttonVariants } from "@repo/ui/components/button";
 import { Badge } from "@repo/ui/components/badge";
-import { LinkNavigate } from "./LinkNavigate";
+import { buttonVariants } from "@repo/ui/components/button";
+import { cn } from "@repo/ui/lib/utils";
 
 export function Hero() {
   return (
@@ -48,7 +48,7 @@ export function Hero() {
             <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-muted/50 backdrop-blur-sm border">
               {/* Step 1 */}
               <div className="flex items-center gap-2 text-sm font-medium">
-                <div className="p-2 rounded-full bg-primary/10">
+                <div className="p-2 rounded-full bg-primary/10 hidden md:block">
                   <svg
                     className="h-4 w-4 text-primary"
                     fill="currentColor"
@@ -80,10 +80,10 @@ export function Hero() {
               <div className="flex items-center gap-2 text-sm font-medium">
                 <div className="p-2 rounded-full bg-secondary/10">
                   <kbd className="px-2 py-1 text-xs font-mono bg-muted rounded border">
-                    Ctrl+I
+                    Ctrl+I/Cmd+I
                   </kbd>
                 </div>
-                <span>Trigger</span>
+                <span className="hidden md:block">Trigger</span>
               </div>
 
               <div className="flex items-center">
@@ -104,9 +104,9 @@ export function Hero() {
 
               {/* Step 3 */}
               <div className="flex items-center gap-2 text-sm font-medium">
-                <div className="p-2 rounded-full bg-accent/10">
+                <div className="p-2 rounded-full bg-primary/10 hidden md:block">
                   <svg
-                    className="h-4 w-4 text-accent"
+                    className="h-4 w-4 text-primary"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -120,12 +120,14 @@ export function Hero() {
 
           {/* CTA buttons */}
           <div className="mb-8 sm:mb-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-            <Button
-              size="lg"
-              className="w-full sm:w-auto px-6 sm:px-8 cursor-pointer"
+            <a
+              href="https://github.com/thevaibhavmaurya/beyond-meanings-turborepo"
+              className={cn(buttonVariants({ size: "lg" }))}
+              target="_blank"
+              rel="noreferrer"
             >
               Add to Browser
-            </Button>
+            </a>
           </div>
 
           {/* Video */}
@@ -133,13 +135,14 @@ export function Hero() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000"></div>
               <div className="relative aspect-video overflow-hidden rounded-lg border bg-muted shadow-2xl">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/r7X_D8XMGq0"
-                  title="BeyondMeanings - AI-Powered Research Extension Demo"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                ></iframe>
+                <video
+                  className="w-full h-full object-cover"
+                  src="/demo.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                />
               </div>
             </div>
           </div>

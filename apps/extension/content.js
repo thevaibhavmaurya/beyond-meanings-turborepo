@@ -203,7 +203,7 @@ function startStatusPolling() {
 
   let attemptCount = 0;
   const maxAttempts = 60; // 60 seconds max
-  const pollInterval = 2000; // 2 seconds
+  const pollInterval = 3000; // 2 seconds
 
   pollingInterval = setInterval(async () => {
     attemptCount++;
@@ -467,7 +467,6 @@ function createLoadingContent(text) {
   return `
         <div class="popup-header">
             <div class="popup-title">
-                <div class="popup-logo">◐</div>
                 Beyond Meanings
             </div>
             <button class="close-btn" type="button" aria-label="Close">×</button>
@@ -489,7 +488,6 @@ function createProcessingContent(text, data) {
   return `
         <div class="popup-header">
             <div class="popup-title">
-                <div class="popup-logo">◐</div>
                 Beyond Meanings
             </div>
             <button class="close-btn" type="button" aria-label="Close">×</button>
@@ -597,7 +595,6 @@ function createPopupContent(text, data) {
   return `
         <div class="popup-header">
             <div class="popup-title">
-                <div class="popup-logo">◐</div>
                 Beyond Meanings
             </div>
             <button class="close-btn" type="button" aria-label="Close">×</button>

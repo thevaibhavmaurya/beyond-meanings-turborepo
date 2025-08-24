@@ -137,24 +137,12 @@ async function handleLookupRequest(message, sendResponse) {
       }),
     });
 
-    const data = await lookupResponse.json();
-    console.log("Lookup response:", data);
-
     if (!lookupResponse.ok) {
-      if (lookupResponse.status === 401 || lookupResponse.status === 403) {
-        sendResponse({
-          success: false,
-          error: "Invalid API key. Please update your API key.",
-          needsApiKeyUpdate: true,
-        });
-        return;
-      }
-
-      const errorText = await lookupResponse.text();
+      const error = await lookupResponse.json();
       sendResponse({
         success: false,
-        error: `API request failed: ${lookupResponse.status} ${lookupResponse.statusText}`,
-        details: errorText,
+        error: error.message,
+        details: error,
       });
       return;
     }

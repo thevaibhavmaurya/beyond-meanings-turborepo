@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Beyond Meanings",
+  "version": "1.0.0",
+  "description": "Get detailed AI-powered research about selected text using advanced knowledge synthesis",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://api.beyondmeanings.com/*",
+    "https://beyondmeanings.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["floating-popup.css"],
+      "run_at": "document_end",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Beyond Meanings - Setup API Key",
+    "default_icon": {
+      "16": "icons/icon.png",
+      "32": "icons/icon.png",
+      "48": "icons/icon.png",
+      "128": "icons/icon.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon.png",
+    "32": "icons/icon.png",
+    "48": "icons/icon.png",
+    "128": "icons/icon.png"
+  },
+  "commands": {
+    "trigger-lookup": {
+      "suggested_key": {
+        "default": "Ctrl+I",
+        "mac": "Command+I"
+      },
+      "description": "Research selected text with AI"
+    }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["floating-popup.css", "icons/*.png"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "minimum_chrome_version": "88",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  }
+}

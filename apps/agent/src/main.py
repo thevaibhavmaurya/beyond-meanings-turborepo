@@ -62,46 +62,7 @@ async def process_agent_request(query: str, research_id: str):
         print(f"Processing research {research_id} for query: {query}")
 
         # Run the agent
-        # result = run_agent(query)  # Uncomment when ready to use real agent
-        result = {
-            "query": query,
-            "tabs": [
-                {
-                    "title": "Wikipedia",
-                    "content": "Python is a high-level, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation.",
-                    "source": "Wikipedia API",
-                },
-                {
-                    "title": "Definition",
-                    "content": "Python: noun. A large nonvenomous snake found in Africa, Asia, and Australia; also, a powerful programming language widely used for automation, web development, and data science.",
-                    "source": "Oxford Dictionary API",
-                },
-                {
-                    "title": "Web",
-                    "content": "Recent news about Python includes its rising popularity in AI and data science according to TavilySearch results.",
-                    "source": "Tavily Search API",
-                },
-                {
-                    "title": "Movies",
-                    "content": "No relevant movies found for 'Python'.",
-                    "source": "TMDB",
-                },
-                {
-                    "title": "Gaming",
-                    "content": "No games found related to 'Python'.",
-                    "source": "IGDB",
-                },
-            ],
-            "primary_summary": "Python is a widely used language for programming, automation, and data science. It is also a type of snake in zoology.",
-            "tools_used": [
-                "WikipediaTool",
-                "OxfordDictionaryTool",
-                "TavilySearchTool",
-                "TMDBTool",
-                "IGDBTool",
-            ],
-        }
-
+        result = run_agent(query)  # Uncomment when ready to use real agent
         # Update database with success
         await update_research_in_database(research_id, result, "COMPLETED")
 

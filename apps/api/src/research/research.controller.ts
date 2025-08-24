@@ -22,8 +22,10 @@ import {
   IResponseBody,
   IResearchJobStatus,
   IMacLookupOutput,
+  ICreditOperation,
 } from '@repo/types';
 import { ApiKeyGuard } from 'src/api-key/api-key.guard';
+import { CreditGuard, RequiredCredits } from 'src/billing/credit.guard';
 
 @Controller('research')
 export class ResearchController {
@@ -33,7 +35,8 @@ export class ResearchController {
 
   @Post('lookup')
   @HttpCode(HttpStatus.OK)
-  @UseGuards(ApiKeyGuard)
+  @RequiredCredits(ICreditOperation.CREDIT_1)
+  @UseGuards(ApiKeyGuard, CreditGuard)
   async lookup(
     @Body() body: LookupRequestDto,
   ): Promise<IResponseBody<ILookupResponse>> {

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Beyond Meanings - Setup</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <img
+          src="icons/icon.png"
+          alt="Beyond Meanings Logo"
+          style="width: 30px"
+        />
+        <h1>Beyond Meanings</h1>
+        <p class="subtitle">AI-Powered Research Extension</p>
+      </div>
+
+      <div id="setup-form" class="setup-form">
+        <div class="form-group">
+          <label for="api-key">API Key</label>
+          <input
+            type="text"
+            id="api-key"
+            placeholder="Enter your API key (beyond-...)"
+            autocomplete="off"
+            spellcheck="false"
+          />
+          <div class="api-key-status" style="display: none">
+            <div class="status-dot"></div>
+            <span></span>
+          </div>
+        </div>
+
+        <button id="validate-btn" class="btn-primary">
+          <span class="btn-text">Validate & Save</span>
+          <span class="loading-spinner" style="display: none">⟳</span>
+        </button>
+
+        <div
+          id="error-message"
+          class="error-message"
+          style="display: none"
+        ></div>
+        <div
+          id="success-message"
+          class="success-message"
+          style="display: none"
+        ></div>
+      </div>
+
+      <div id="setup-complete" class="setup-complete" style="display: none">
+        <div class="success-icon">✓</div>
+        <h2>Setup Complete!</h2>
+        <p>Your API key has been validated and saved.</p>
+
+        <div class="api-key-status">
+          <div class="status-dot valid"></div>
+          <span>API key is active</span>
+        </div>
+
+        <div class="instructions">
+          <h3>How to use:</h3>
+          <ol>
+            <li>Select any text on a webpage</li>
+            <li>
+              Press <kbd>Ctrl</kbd> + <kbd>I</kbd> (or <kbd>Cmd</kbd> +
+              <kbd>I</kbd> on Mac)
+            </li>
+            <li>View detailed AI-powered research about your selection</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="footer">
+        <p>
+          Need an API key?
+          <a href="https://beyondmeanings.com/dashboard" target="_blank"
+            >Get one here</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

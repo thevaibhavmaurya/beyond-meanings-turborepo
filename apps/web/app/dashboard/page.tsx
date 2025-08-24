@@ -113,10 +113,10 @@ function DashboardContent() {
       });
       if (response.success) {
         setApiKey((prev) =>
-          prev ? { ...prev, isActive: !prev.isActive } : null
+          prev ? { ...prev, isActive: !prev.isActive } : null,
         );
         toast.success(
-          `API key ${!apiKey.isActive ? "activated" : "deactivated"}`
+          `API key ${!apiKey.isActive ? "activated" : "deactivated"}`,
         );
       }
     } catch (error) {
@@ -197,7 +197,7 @@ function DashboardContent() {
         </div>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          <Card className="lg:col-span-1">
+          <Card className="lg:col-span-1 py-6">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <User className="h-5 w-5" />
@@ -274,7 +274,7 @@ function DashboardContent() {
             </CardContent>
           </Card>
 
-          <Card className="lg:col-span-1">
+          <Card className="lg:col-span-1 py-6">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Key className="h-5 w-5" />
@@ -343,7 +343,7 @@ function DashboardContent() {
             </CardContent>
           </Card>
 
-          <Card className="lg:col-span-1">
+          <Card className="lg:col-span-1 py-6">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <CreditCard className="h-5 w-5" />
@@ -382,13 +382,13 @@ function DashboardContent() {
                         <span>
                           {formatCredits(
                             billing.creditsUsed,
-                            billing.totalCredits
+                            billing.totalCredits,
                           )}
                         </span>
                         <span>
                           {getUsagePercentage(
                             billing.creditsUsed,
-                            billing.totalCredits
+                            billing.totalCredits,
                           ).toFixed(1)}
                           %
                         </span>

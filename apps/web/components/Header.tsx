@@ -1,27 +1,20 @@
 "use client";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { Button } from "@repo/ui/components/button";
 import { Badge } from "@repo/ui/components/badge";
-import {
-  Menu,
-  X,
-  Download,
-  User,
-  Home,
-  AlertTriangle,
-  Star,
-  BookOpen,
-  DollarSign,
-  HelpCircle,
-  LayoutDashboard,
-} from "lucide-react";
+import { Button } from "@repo/ui/components/button";
+import { LayoutDashboard, Menu, User, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 import { useAuth } from "../lib/auth-context";
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { isAuthenticated } = useAuth();
+
+  const LoginLink =
+    process.env.NODE_ENV === "production"
+      ? "https://github.com/thevaibhavmaurya/beyond-meanings-turborepo"
+      : "/login";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,7 +131,7 @@ export function Header() {
                   </Button>
                 </Link>
               ) : (
-                <Link href="/login">
+                <Link href={LoginLink}>
                   <Button
                     size="sm"
                     className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 shadow-lg cursor-pointer"
@@ -211,7 +204,7 @@ export function Header() {
                   </Button>
                 </Link>
               ) : (
-                <Link href="/login">
+                <Link href={LoginLink}>
                   <Button
                     size="sm"
                     className="w-full bg-gradient-to-r from-primary to-primary/80 justify-start cursor-pointer"

@@ -28,6 +28,7 @@ export class CreditGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest();
+
     const userId = request.user?.id;
 
     if (!userId) {

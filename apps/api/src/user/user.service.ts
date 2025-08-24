@@ -84,7 +84,7 @@ export class UserService {
     });
   }
 
-  async verifyEmailCode(email: string, code: number) {
+  async verifyEmailCode(email: string, code: string) {
     const auth = await this.repository.findOne({ where: { email } });
 
     if (!auth) {
@@ -97,7 +97,7 @@ export class UserService {
       );
     }
 
-    const isValidCode = await HashUtils.compare(String(code), auth.accessToken);
+    const isValidCode = await HashUtils.compare(code, auth.accessToken);
     if (!isValidCode) {
       throw new BadRequestException('The verification code is invalid.');
     }

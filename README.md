@@ -3,7 +3,7 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
-- [Live Demo & Project Walkthrough](#live-demo-project-walkthrough)
+- [Live Demo And Project Walkthrough](#live-demo-and-project-walkthrough)
 - [Problems Faced By Users](#problems-faced-by-users)
 - [Mac's LookUp Vs BeyondMeanings](#macs-lookup-vs-beyondmeanings)
 - [Features](#features)
@@ -24,7 +24,7 @@ BeyondMeanings is an intelligent browser extension that inspired by Mac's LookUp
 
 No more tab switching. No more context loss. No more fragmented research.
 
-## [Live Demo & Project Walkthrough](https://youtu.be/LMFYbrcf8HU)
+## [Live Demo And Project Walkthrough](https://youtu.be/LMFYbrcf8HU)
 
 [![Watch the video](https://img.youtube.com/vi/LMFYbrcf8HU/maxresdefault.jpg)](https://youtu.be/LMFYbrcf8HU)
 

@@ -13,6 +13,7 @@
 - [What I think about BeyondMeanings](#what-i-think-about-beyondmeanings)
 - [Installation Guide](#installation-guide)
 - [Quick Start](#quick-start)
+- [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -232,3 +233,16 @@ Make sure you have Node.js, Postgres and pnpm installed on your system.
 3. **View organized results** in the popup panel
 4. **Explore different tabs** for comprehensive information
 5. **Close when done** - you never left your original page!
+
+## Conclusion
+Building BeyondMeanings has been one hell of a journey! When I started this hackathon project, I honestly didn't know what I was getting into. Python was completely foreign to me - I'm a JavaScript guy - but somehow I managed to build an entire AI agent system with Cursor's help (seriously, that tool saved my life).
+
+The whole experience taught me so much. Going from "how do browser extensions even work?" to actually having people use something I built feels pretty surreal. Sure, the architecture isn't perfect yet and the response times could be way better, but seeing that popup show research results for the first time was such a rush.
+
+What started as a simple idea - "why can't Windows users have Mac's lookup feature?" - turned into this multi-source research tool that I'm genuinely excited about. The fact that I learned Python, built my first agent, figured out browser extensions, AND somehow made them all work together in just a few weeks still blows my mind.
+
+Cursor was honestly a game-changer throughout this whole process. Without it, I probably would've been stuck on Python syntax for days instead of focusing on the actual problem I was trying to solve.
+
+I'm definitely not stopping here. This hackathon pushed me to build something I actually want to use every day, and I think other people might feel the same way. Maybe BeyondMeanings will become a real product that helps people research stuff without losing their minds with tab switching.
+
+Thanks again to WeMakeDevs and Portia AI for organizing AgentHack2025 - this whole experience has been incredible and I learned way more than I expected. Time to keep building! 🚀

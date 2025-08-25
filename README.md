@@ -76,7 +76,54 @@ These are just a few limitations. On the internet, many more issues are discusse
 - **Privacy Focused** - No tracking, no data collection, no ads. Your research stays private and secure
 
 ## Architecture
-<img width="3044" height="1837" alt="image" src="https://github.com/user-attachments/assets/37dc1169-a9e0-45ce-9cf8-2581c1e1638a" />
+The current architecture is functional but not optimal for scalability. It needs to be restructured to ensure better performance, maintainability, and support for future growth.
+```mermaid
+flowchart TD
+    %% Groups
+    subgraph Frontend [🖥️ Frontend]
+        User([User])
+        WebApp[Web Application]
+        Extension[Browser Extension]
+    end
+
+    subgraph Backend [⚙️ Backend Services]
+        API[Server / API]
+    end
+
+    subgraph Storage [💾 Data Layer]
+        DB[(Database)]
+    end
+
+    subgraph Worker [🤖 Background Worker]
+        Agent[Agent Worker]
+    end
+
+    %% Step by step flow
+    User -->|1. Login| WebApp
+    WebApp -->|2. Issue API Key| User
+    Extension -->|3. Auth with API Key| API
+    Extension -->|4. Lookup Request| API
+    API -->|5. Create Job| DB
+    API -->|6. Trigger Agent| Agent
+    Agent -->|7. Process Research| Agent
+    Agent -->|8. Update Results| API
+    API -->|9. Update DB| DB
+    Extension -->|10. Poll for Status| API
+    API -->|11. Fetch Job Status| DB
+    API -->|12. Return Results| Extension
+    Extension -->|13. Show Results| User
+
+    %% Styles
+    classDef userInterface fill:#fdf6e3,stroke:#444,stroke-width:2px,color:#111,font-weight:bold
+    classDef service fill:#e0f7fa,stroke:#006064,stroke-width:2px,color:#00363a,font-weight:bold
+    classDef storage fill:#ede7f6,stroke:#4527a0,stroke-width:2px,color:#1a237e,font-weight:bold
+    classDef worker fill:#fff3e0,stroke:#ef6c00,stroke-width:2px,color:#bf360c,font-style:italic
+
+    class User,WebApp,Extension userInterface
+    class API service
+    class DB storage
+    class Agent worker
+```
 
 ## Demo Video
 

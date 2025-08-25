@@ -3,11 +3,12 @@
 ## Table of Contents
 
 - [Introduction](#introduction)
+- [Live Demo & Project Walkthrough](#live-demo-project-walkthrough)
 - [Problems Faced By Users](#problems-faced-by-users)
 - [Mac's LookUp Vs BeyondMeanings](#macs-lookup-vs-beyondmeanings)
 - [Features](#features)
 - [Architecture](#architecture)
-- [Demo Video](#demo-video)
+- [Quick Demo Video](#quick-demo-video)
 - [My Challenges](#my-challenges)
 - [What I think about BeyondMeanings](#what-i-think-about-beyondmeanings)
 - [Installation Guide](#installation-guide)
@@ -22,6 +23,11 @@ Research online is broken. You highlight a word, open a new tab, search Google, 
 BeyondMeanings is an intelligent browser extension that inspired by Mac's LookUp Feature. It brings comprehensive, multi-source research directly to any webpage. Simply highlight any word or phrase, and instantly access organized information from Wikipedia, web search, movie databases, gaming platforms, dictionary definitions and all without leaving your current page.
 
 No more tab switching. No more context loss. No more fragmented research.
+
+## [Live Demo & Project Walkthrough](https://youtu.be/LMFYbrcf8HU)
+
+[![Watch the video](https://img.youtube.com/vi/LMFYbrcf8HU/maxresdefault.jpg)](https://youtu.be/LMFYbrcf8HU)
+
 
 ## Problems Faced By Users
 
@@ -125,7 +131,7 @@ flowchart TD
     class Agent worker
 ```
 
-## Demo Video
+## Quick Demo Video
 
 https://github.com/user-attachments/assets/b378e992-8eca-40e7-bad1-d7d123b88c78
 

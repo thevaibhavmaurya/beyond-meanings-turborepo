@@ -22,11 +22,6 @@ BeyondMeanings is an intelligent browser extension that inspired by Mac's LookUp
 
 No more tab switching. No more context loss. No more fragmented research.
 
-## [Live Demo And Project Walkthrough](https://youtu.be/LMFYbrcf8HU)
-
-[![Watch the video](https://img.youtube.com/vi/LMFYbrcf8HU/maxresdefault.jpg)](https://youtu.be/LMFYbrcf8HU)
-
-
 ## Problems Faced By Users
 
 - **Information Is All Over The Place** - Sometimes you need Wikipedia, sometimes Reddit has the real answer, sometimes it's on Stack Overflow. Why should you check each site manually when one search can do it all?
